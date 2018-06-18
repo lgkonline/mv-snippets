@@ -1,0 +1,21 @@
+{
+	"article": [
+		{
+			"title": "JavaScript: Get content of an iframe",
+			"tag": [
+				"JavaScript",
+				"HTML"
+			],
+			"content": "Sometimes you need to get the content of an HTML iframe.\nHere is how you can do it.\n\nBut you can only access the content when it's on the the same domain!\n\n```js\nvar iframe = document.querySelector(\"iframe\");\n\n// Make sure the iframe is ready\niframe.onload = function() {\n  var iframeContent = iframe.contentDocument || iframe.contentWindow.document;\n  \n  // Now you can make normal queries\n  console.log(iframeContent.querySelector(\"#element-in-iframe\").innerText);\n};\n```"
+		},
+		{
+			"title": "If / else statement inside of React Component's Render method",
+			"tag": [
+				"HTML",
+				"JavaScript",
+				"HTML"
+			],
+			"content": "Sometimes (well, actually pretty often) you have to use conditional statements inside of React Component's Render methods.\n\nYou could do it like this:\n\n```\nimport React from \"react\";\n\nclass MyComponent extends React.Component {\n    render() {\n        return (\n            <div>\n                {\"LGK\" == \"awesome\" ?\n                    <h1>LGK is awesome!</h1>\n                : \n                    <h1>LGK is not awesome :C</h1>\n                }\n            </div>\n        );\n    }\n}\n```\n\nThis works without any problem. But you always have to set the else part. But in many situations you only need the \"if part\".\nIn this case, this way is much nicer:\n\n```\nimport React from \"react\";\n\nclass MyComponent extends React.Component {\n    render() {\n        return (\n            <div>\n                {\"LGK\" == \"awesome\" &&\n                    <h1>LGK is awesome!</h1>\n                }\n            </div>\n        );\n    }\n}\n```"
+		}
+	]
+}

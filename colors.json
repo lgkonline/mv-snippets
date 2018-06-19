@@ -6,7 +6,8 @@
 				"JavaScript",
 				"HTML"
 			],
-			"content": "Sometimes you need to get the content of an HTML iframe.\nHere is how you can do it.\n\nBut you can only access the content when it's on the the same domain!\n\n```js\nvar iframe = document.querySelector(\"iframe\");\n\n// Make sure the iframe is ready\niframe.onload = function() {\n  var iframeContent = iframe.contentDocument || iframe.contentWindow.document;\n  \n  // Now you can make normal queries\n  console.log(iframeContent.querySelector(\"#element-in-iframe\").innerText);\n};\n```"
+			"content": "Sometimes you need to get the content of an HTML iframe.\nHere is how you can do it.\n\nBut you can only access the content when it's on the the same domain!\n\n```js\nvar iframe = document.querySelector(\"iframe\");\n\n// Make sure the iframe is ready\niframe.onload = function() {\n  var iframeContent = iframe.contentDocument || iframe.contentWindow.document;\n  \n  // Now you can make normal queries\n  console.log(iframeContent.querySelector(\"#element-in-iframe\").innerText);\n};\n```",
+			"slug": "js-get-content-of-an-iframe"
 		},
 		{
 			"title": "If / else statement inside of React Component's Render method",

@@ -26,7 +26,7 @@
 				"DOM"
 			],
 			"slug": "js-hide-an-element-when-clicking-on-somewhere-else",
-			"content": "Hint: I used the functions `removeClass()` and `addClass()` to make things easier. You can find them on [#/javascript-hasclass-addclass-removeclass-helper-functions](this post of me)\n\n```\n// By default always hide the popup when the user is clicking on somewhere\ndocument.body.onclick = function() {\n  removeClass(document.querySelector(\"#popup\"), \"in\");\n};    \n\n// Show the popup\ndocument.querySelector(\"#popup-trigger\").addEventListener(\"click\", function() {\n  addClass(document.querySelector(\"#popup\"), \"in\");\n});\n\n// Define which elements shouldn't behave like default\nvar els = document.querySelectorAll(\"#popup-trigger, #popup\");\n\n// When clicking on these elements don't hide the popup\nfor (var i = 0; i < els.length; i++) {\n  els[i].addEventListener(\"click\", function(e) {\n    e.stopPropagation();\n  });\n}\n```\n\nYou can find a live demo on CodePen: [http://codepen.io/lgkonline/pen/rjorrw](http://codepen.io/lgkonline/pen/rjorrw)"
+			"content": "Hint: I used the functions `removeClass()` and `addClass()` to make things easier. You can find them on [https://lgkonline.github.io/mv-snippets/#javascript-hasclass-addclass-removeclass-helper-functions](this post of me)\n\n```\n// By default always hide the popup when the user is clicking on somewhere\ndocument.body.onclick = function() {\n  removeClass(document.querySelector(\"#popup\"), \"in\");\n};    \n\n// Show the popup\ndocument.querySelector(\"#popup-trigger\").addEventListener(\"click\", function() {\n  addClass(document.querySelector(\"#popup\"), \"in\");\n});\n\n// Define which elements shouldn't behave like default\nvar els = document.querySelectorAll(\"#popup-trigger, #popup\");\n\n// When clicking on these elements don't hide the popup\nfor (var i = 0; i < els.length; i++) {\n  els[i].addEventListener(\"click\", function(e) {\n    e.stopPropagation();\n  });\n}\n```\n\nYou can find a live demo on CodePen: [http://codepen.io/lgkonline/pen/rjorrw](http://codepen.io/lgkonline/pen/rjorrw)"
 		},
 		{
 			"title": "JavaScript \"hasClass()\", \"addClass()\", \"removeClass()\" helper functions",
@@ -38,5 +38,6 @@
 			],
 			"content": "If you're like me and come from jQuery to pure JavaScript, these helper functions might be very helpful for you:\n\n```\nfunction hasClass(el, className) {\n    if (el.classList)\n        return el.classList.contains(className);\n    else\n        return !!el.className.match(new RegExp('(\\\\s|^)' + className + '(\\\\s|$)'));\n}\n\nfunction addClass(el, className) {\n    if (el.classList)\n        el.classList.add(className);\n    else if (!hasClass(el, className)) \n        el.className += \" \" + className;\n}\n\nfunction removeClass(el, className) {\n    if (el.classList)\n        el.classList.remove(className);\n    else if (hasClass(el, className))\n        el.className=el.className.replace(new RegExp('(\\\\s|^)' + className + '(\\\\s|$)'), ' ');\n}\n```"
 		}
-	]
+	],
+	"search": "js-hide-an-element-when-clicking-on-somewhere-else"
 }

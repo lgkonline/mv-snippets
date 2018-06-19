@@ -37,6 +37,16 @@
 				"DOM"
 			],
 			"content": "If you're like me and come from jQuery to pure JavaScript, these helper functions might be very helpful for you:\n\n```\nfunction hasClass(el, className) {\n    if (el.classList)\n        return el.classList.contains(className);\n    else\n        return !!el.className.match(new RegExp('(\\\\s|^)' + className + '(\\\\s|$)'));\n}\n\nfunction addClass(el, className) {\n    if (el.classList)\n        el.classList.add(className);\n    else if (!hasClass(el, className)) \n        el.className += \" \" + className;\n}\n\nfunction removeClass(el, className) {\n    if (el.classList)\n        el.classList.remove(className);\n    else if (hasClass(el, className))\n        el.className=el.className.replace(new RegExp('(\\\\s|^)' + className + '(\\\\s|$)'), ' ');\n}\n```"
+		},
+		{
+			"title": "Pure CSS: DRY Centered element with an absolute position",
+			"slug": "pure-css-dry-centered-element-with-an-absolute-position-update",
+			"tag": [
+				"CSS",
+				"CSS3",
+				"DRY"
+			],
+			"content": "Maybe you already know this trick to bring an absolute positioned element into the middle:\n\n```\n#box {\n  position: absolute;\n  width: 400px;\n  height: 225px;\n  \n  left: 50%;\n  margin-left: -200px; /* half of the width */\n  \n  top: 50%;\n  margin-top: -112.5px; /* half of the height */\n}\n```\n\nBut this method is not really DRY (don't repeat yourself). If you want to change the [ic]width[/ic] property, you also have to update the [ic]margin-left[/ic] property and to recalculate it.\n\nSo instead you could take advantage of CSS variables. Like this:\n\n```\n:root {\n  /* Set the width and height only once */\n  --box-width: 400px;\n  --box-height: 225px;\n}\n\n#box {\n  position: absolute;\n  width: var(--box-width);\n  height: var(--box-height);\n  \n  /* Take 50% and substract the half of the box from it */\n  left: calc(50% - var(--box-width)/2);\n  top: calc(50% - var(--box-height)/2);\n}\n```\n\n[b]Warning:[/b] While I'm writing this Microsoft Edge does not yet support CSS variables. But they are working on it. You can see the current state here: [link:(https://developer.microsoft.com/en-us/microsoft-edge/platform/status/csscustompropertiesakacssvariables/?q=CSS%20Custom%20Properties%20category%3Acss)https://developer.microsoft.com/en-us/microsoft-edge/platform/status/csscustompropertiesakacssvariables/?q=CSS%20Custom%20Properties%20category%3Acss]\n\nSee the live demo on CodePen: [link:(http://codepen.io/lgkonline/pen/YNzqXz)http://codepen.io/lgkonline/pen/YNzqXz]\n\n[i]I've updated this solution. You can see the original one here: [link:(http://codepen.io/lgkonline/pen/aBKeZM)http://codepen.io/lgkonline/pen/aBKeZM][/i]"
 		}
 	]
 }

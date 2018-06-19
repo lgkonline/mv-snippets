@@ -21,7 +21,12 @@
 		},
 		{
 			"title": "JS: Hide an element when clicking on somewhere else",
-			"tag": []
+			"tag": [
+				"JavaScript",
+				"DOM"
+			],
+			"slug": "js-hide-an-element-when-clicking-on-somewhere-else",
+			"content": "Hint: I used the functions `removeClass()` and `addClass()` to make things easier. You can find them on [link:(this post of mine.)https://www.devdashboard.com/342/javascript-hasclass-addclass-removeclass-helper-functions]\n\n```\n// By default always hide the popup when the user is clicking on somewhere\ndocument.body.onclick = function() {\n  removeClass(document.querySelector(\"#popup\"), \"in\");\n};    \n\n// Show the popup\ndocument.querySelector(\"#popup-trigger\").addEventListener(\"click\", function() {\n  addClass(document.querySelector(\"#popup\"), \"in\");\n});\n\n// Define which elements shouldn't behave like default\nvar els = document.querySelectorAll(\"#popup-trigger, #popup\");\n\n// When clicking on these elements don't hide the popup\nfor (var i = 0; i < els.length; i++) {\n  els[i].addEventListener(\"click\", function(e) {\n    e.stopPropagation();\n  });\n}\n```\n\nYou can find a live demo on CodePen: [http://codepen.io/lgkonline/pen/rjorrw](http://codepen.io/lgkonline/pen/rjorrw)"
 		}
 	]
 }

@@ -47,6 +47,26 @@
 				"DRY"
 			],
 			"content": "Maybe you already know this trick to bring an absolute positioned element into the middle:\n\n```\n#box {\n  position: absolute;\n  width: 400px;\n  height: 225px;\n  \n  left: 50%;\n  margin-left: -200px; /* half of the width */\n  \n  top: 50%;\n  margin-top: -112.5px; /* half of the height */\n}\n```\n\nBut this method is not really DRY (don't repeat yourself). If you want to change the [ic]width[/ic] property, you also have to update the [ic]margin-left[/ic] property and to recalculate it.\n\nSo instead you could take advantage of CSS variables. Like this:\n\n```\n:root {\n  /* Set the width and height only once */\n  --box-width: 400px;\n  --box-height: 225px;\n}\n\n#box {\n  position: absolute;\n  width: var(--box-width);\n  height: var(--box-height);\n  \n  /* Take 50% and substract the half of the box from it */\n  left: calc(50% - var(--box-width)/2);\n  top: calc(50% - var(--box-height)/2);\n}\n```\n\nSee the live demo on CodePen: [http://codepen.io/lgkonline/pen/YNzqXz](http://codepen.io/lgkonline/pen/YNzqXz)\n\n*I've updated this solution. You can see the original one here: [http://codepen.io/lgkonline/pen/aBKeZM](http://codepen.io/lgkonline/pen/aBKeZM)*"
+		},
+		{
+			"title": "CSS: Use the device's default font",
+			"slug": "css-use-the-devices-default-font",
+			"tag": [
+				"CSS",
+				"Responsive Design",
+				"Font"
+			],
+			"content": "With this snippet your page will always use the default font of the user's device:\n\n```\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\n}\n```"
+		},
+		{
+			"title": "Vue.js: Sorting array on a custom filter - Avoid an infinite loop",
+			"slug": "vue-js-sorting-array-on-a-custom-filter-avoid-an-infinite-loop",
+			"tag": [
+				"HTML",
+				"JavaScript",
+				"Vue.js"
+			],
+			"content": "With Vue.js you can create custom filters as a method like this:\n\n**index.html**\n```\n<main id=\"app\">\n  <div v-for=\"i in even(items)\" class=\"item\">\n    {{i.title}}\n    <small>{{i.position}}</small>\n  </div>\n</main>\n```\n\n**main.js**\n```\nvar app = new Vue({\n  el: \"#app\",\n  data: {\n    items: [\n      {\n        \"title\": \"Jerry\",\n        \"position\": 5\n      },\n      {\n        \"title\": \"Bucks Bunny\",\n        \"position\": 1\n      }\n    ]\n  },\n  methods: {\n    even: function(arr) {\n      return arr.sort(function(a, b) {\n        return a.position - b.position;\n      });\n    }\n  }\n});\n```\n\n**STOP, DON'T USE THAT CODE!**\n`arr.sort(...)` will generate an infinite loop. To avoid that, you should use `slice()` before the `sort()` function. Like this:\n\n**main.js**\n```\nvar app = new Vue({\n  el: \"#app\",\n  data: {\n    items: [\n      {\n        \"title\": \"Jerry\",\n        \"position\": 5\n      },\n      {\n        \"title\": \"Bucks Bunny\",\n        \"position\": 1\n      }\n    ]\n  },\n  methods: {\n    even: function(arr) {\n      // Set slice() to avoid to generate an infinite loop!\n      return arr.slice().sort(function(a, b) {\n        return a.position - b.position;\n      });\n    }\n  }\n});\n```\n\nYou can find a live demo on CodePen: [http://codepen.io/lgkonline/pen/dOebrw](http://codepen.io/lgkonline/pen/dOebrw)"
 		}
 	]
 }

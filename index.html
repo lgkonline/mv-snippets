@@ -14,16 +14,35 @@
 
 <body>
     <div class="app" mv-app="colors" mv-storage="https://github.com/lgkonline/mv-snippets" mv-plugins="markdown">
-        <article property="article" mv-multiple>
+        <input type="hidden" property="search" value="" mv-mode="read">
+
+        <header>
+            <a class="header-title" href=".">LGK’s code snippets</a>
+        </header>
+
+        <article property="article" mv-multiple class="[if(search, if(slug = search, show, hide), show)]">
             <h1 property="title"></h1>
+            <h5 class="slug">
+                <a href="#[slug]">
+                    <span property="slug">post1</span>
+                </a>
+            </h5>
             <div class="tags">
                 <span class="tag" property="tag" mv-multiple>General</span>
             </div>
             <div property="content" class="markdown"># Head</div>
         </article>
+
+        <footer>
+            <h3>
+                Made with
+                <a href="https://mavo.io">Mavo</a> 💖
+            </h3>
+        </footer>
     </div>
 
-    <script src="https://get.mavo.io/mavo.min.js"></script>
+    <script src="https://get.mavo.io/mavo.js"></script>
+    <script src="./mavo-router.js"></script>
 </body>
 
 </html>

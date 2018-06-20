@@ -97,6 +97,15 @@
 				"Object"
 			],
 			"content": "```\n// Classes area\n\nfunction Person() {\n  var me = {};\n  \n  me.Name;\n  me.Birthday;\n  \n  me.Speak = function() {\n    alert(\n      \"Hello! I am \" + me.Name + \" and I am \" +\n      me.Age + \" years old.\"\n    );\n  }\n  \n  // Important!\n  return me;\n}\n\nfunction Developer() {\n  // Inherit Person\n  var me = Person();\n  \n  me.FavoriteCodeLanguage;\n  \n  me.Programming = function() {\n    document.querySelector(\"#output\").value = \"Writing stuff...\";\n  }\n  \n  return me;\n}\n\n\n// Implementation\nvar normalPerson = new Person();\nnormalPerson.Name = \"Josh\";\nnormalPerson.Age = 18;\n\nvar developerPerson = new Developer();\ndeveloperPerson.Name = \"Steve\";\ndeveloperPerson.Age = 21;\n```\n\nHere you can find a live demo: [http://codepen.io/lgkonline/pen/EypgPx](http://codepen.io/lgkonline/pen/EypgPx)"
+		},
+		{
+			"title": "The simpliest way for a sticky footer (HTML, CSS)",
+			"slug": "the-simpliest-way-for-a-sticky-footer-html-css",
+			"tag": [
+				"CSS",
+				"HTML"
+			],
+			"content": "It is so easy by just using `flex`:\n\n```\nbody {\n    display: flex;\n    min-height: 100vh;\n    flex-direction: column;\n}\n\nmain {\n    flex: 1;\n}\n```\n\nAnd here is the HTML:\n```\n<body>\n    <header>\n        <h1>My Website</h1>\n    </header>\n\n    <main>\n        My Content\n    </main>\n\n    <footer>\n        Footer\n    </footer>\n</body>\n```\n\nHere is a live demo: [http://codepen.io/lgkonline/pen/XKYJVK](http://codepen.io/lgkonline/pen/XKYJVK)"
 		}
 	]
 }

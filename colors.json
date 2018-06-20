@@ -77,6 +77,16 @@
 				"Vue.js"
 			],
 			"content": "You are using Vue.js and your site has multiple pages. But your model for contact form information should only be available on the [ic]contact.html[/ic] site.\n\nSo this is how you do it.\n\n**contact.html**\n```\n<!DOCTYPE html>\n<html>\n  <head>\n    <!-- stylesheets and stuff... -->\n  </head>\n\n  <body>\n    <div id=\"app\">\n      <h1>{{appTitle}}</h1>\n\n      <h2>Contact</h2>\n      <form v-on:submit=\"sendContactForm()\">\n        <label>Email</label>\n        <input type=\"text\" v-model=\"contactForm.email\">\n\n        <label>Name</label>\n        <input type=\"text\" v-model=\"contactForm.name\">\n\n        <label>Message</label>\n        <textarea v-model=\"contactForm.message\"></textarea>\n\n        <button type=\"submit\">Send</button>\n      </form>\n    </div>\n\n    <script src=\"vue.js\"></script>\n\n    <script src=\"global.js\"></script>\n\n    <!-- Only needs to be included on contact.html. -->\n    <script src=\"contact.js\"></script>\n\n    <script src=\"main.js\"></script>\n  </body>\n</html>\n```\n\n**global.js**\n```\n<!-- Set data and methods that should be available on each page. -->\nvar globalVue = {\n  data: {\n    appTitle: \"Hello World\"\n  },\n  methods: {}\n};\n```\n\n**contact.js**\n```\n<!-- Extend the global settings by data and methods that should only be available at contact.html. -->\n\nglobalVue.data.contactForm = {\n  email: null,\n  name: null,\n  message: null\n};\n\nglobalVue.methods.sendContactForm = function() {\n  // send it ...\n  // Use app.contactForm to get access to the model data.\n};\n```\n\n**main.js**\n```\n<!-- Finally create the Vue instance and set the data and methods -->\nvar app = new Vue({\n  el: '#app',\n  data: globalVue.data,\n  methods: globalVue.methods\n});\n```"
+		},
+		{
+			"title": "Visual Studio Code: Set file association for one folder",
+			"slug": "visual-studio-code-set-file-association-for-one-folder",
+			"tag": [
+				"HTML",
+				"PHP",
+				"Visual Studio Code"
+			],
+			"content": "In my current project I have a \"View\" folder with PHP files in it. But the contents are actually just HTML markup. So I wanted to tell that Visual Studio, so I can get better intellisense results.\n\nI you want to do the same, here is how it works:\n\n1. Go to the Workspace Settings (File » Preferences » Workspace Settings)\n2. Add the following option:\n\n```\n    \"files.associations\": {\n        \"**/View/*.php\": \"html\"\n    }\n```\n\nIf you didn't have set settings before the [b]settings.json[/b] file should like like this:\n```\n{\n    \"files.associations\": {\n        \"**/View/*.php\": \"html\"\n    }\n}\n```"
 		}
 	]
 }

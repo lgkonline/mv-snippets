@@ -14,23 +14,25 @@
 
 <body>
     <div class="app" mv-app="colors" mv-storage="https://github.com/lgkonline/mv-snippets" mv-plugins="markdown">
-        <input type="hidden" property="search" value="" mv-mode="read">
+        <input type="hidden" property="route" value="" mv-mode="read">
 
         <header>
             <a class="header-title" href=".">LGK’s code snippets</a>
         </header>
 
-        <article property="article" mv-multiple class="[if(search, if(slug = search, show, hide), show)]">
-            <h1 property="title"></h1>
-            <h5 class="slug">
-                <a href="#[slug]">
-                    <span property="slug">post1</span>
-                </a>
-            </h5>
-            <div class="tags">
-                <span class="tag" property="tag" mv-multiple>General</span>
+        <article property="article" mv-multiple class="[if(route, if(slug = route, show, hide), show))]">
+            <div class="article-body">
+                <h1 property="title"></h1>
+                <h5 class="slug">
+                    <a href="#[slug]">
+                        <span property="slug">post1</span>
+                    </a>
+                </h5>
+                <div class="tags">
+                    <span class="tag" property="tag" mv-multiple>General</span>
+                </div>
+                <div property="content" class="markdown"># Head</div>
             </div>
-            <div property="content" class="markdown"># Head</div>
         </article>
 
         <footer>

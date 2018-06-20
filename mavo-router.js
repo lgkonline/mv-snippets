@@ -17,7 +17,7 @@ Mavo.Plugins.register("router", {
 
                 console.log(newMatch);
 
-                document.querySelector("input[property='search']").value = newMatch[0];
+                document.querySelector("input[property='route']").value = newMatch[0];
             };
 
             window.addEventListener("hashchange", event => {

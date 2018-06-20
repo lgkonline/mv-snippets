@@ -47,15 +47,19 @@ h1, h2 ,h3, .header-title {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+img {
+    max-width: 100%;
+}
+
 input,
 button {
     font: inherit;
 }
 
 header {
-    
     height: 8rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -84,8 +88,12 @@ article {
     background-image: linear-gradient(90deg, rgba(255,255,255,.1), white, rgba(255,255,255,.1));
 }
 
+.article-body {
+    padding: 0 1rem;
+}
+
 .slug::before {
-    content: "🔖";
+    content: "🔗";
 }
 
 .tag {
@@ -96,15 +104,24 @@ article {
     margin-right: .5rem;
 }
 
-pre {
+pre, code {
     background-color: #263238;
     color: white;
-    padding: .2rem .5rem;
     border-radius: 3px;
+}
+
+pre {
+    padding: .2rem .5rem;
+    overflow: auto;
 }
 
 code {
     font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
+    padding: 0 .1rem;
+}
+
+pre code {
+    padding: 0;
 }
 
 .hide {

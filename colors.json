@@ -138,6 +138,17 @@
 				"Helper"
 			],
 			"content": "I often missed an `isSet()` function in JavaScript, so I always add this helper function:\n\n```\nfunction isSet(variable) {\n   return typeof variable != \"undefined\" && variable != null;\n}\n```\n\nUse:\n```\nvar myVariable = \"Hey ho\";\n\nif (isSet(myVariable)) {\n   echo \"Yes, I am set\";\n}\n```"
+		},
+		{
+			"title": "Make responsive centered containers",
+			"slug": "make-responsive-centered-containers",
+			"tag": [
+				"CSS",
+				"Responsive Design",
+				"Container",
+				"Align"
+			],
+			"content": "If you 've worked with Bootstrap you might know the very useful `.container` class.\nWell, it's actually pretty easy to make a responsive centered container with just 3 lines of CSS:\n\n```\nsection {\n  padding: 0 calc(50% - 24rem);\n}\n```\n\nHere is a live demo: [http://codepen.io/lgkonline/pen/MeKGpz](http://codepen.io/lgkonline/pen/MeKGpz)"
 		}
 	]
 }

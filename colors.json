@@ -86,7 +86,7 @@
 				"PHP",
 				"Visual Studio Code"
 			],
-			"content": "In my current project I have a \"View\" folder with PHP files in it. But the contents are actually just HTML markup. So I wanted to tell that Visual Studio, so I can get better intellisense results.\n\nI you want to do the same, here is how it works:\n\n1. Go to the Workspace Settings (File » Preferences » Workspace Settings)\n2. Add the following option:\n\n```\n    \"files.associations\": {\n        \"**/View/*.php\": \"html\"\n    }\n```\n\nIf you didn't have set settings before the [b]settings.json[/b] file should like like this:\n```\n{\n    \"files.associations\": {\n        \"**/View/*.php\": \"html\"\n    }\n}\n```"
+			"content": "In my current project I have a \"View\" folder with PHP files in it. But the contents are actually just HTML markup. So I wanted to tell that Visual Studio, so I can get better intellisense results.\n\nI you want to do the same, here is how it works:\n\n1. Go to the Workspace Settings (File » Preferences » Workspace Settings)\n2. Add the following option:\n\n```\n    \"files.associations\": {\n        \"**/View/*.php\": \"html\"\n    }\n```\n\nIf you didn't have set settings before the **settings.json** file should like like this:\n```\n{\n    \"files.associations\": {\n        \"**/View/*.php\": \"html\"\n    }\n}\n```"
 		},
 		{
 			"title": "Simple Class Inheriting in JavaScript",
@@ -150,5 +150,6 @@
 			],
 			"content": "If you 've worked with Bootstrap you might know the very useful `.container` class.\nWell, it's actually pretty easy to make a responsive centered container with just 3 lines of CSS:\n\n```\nsection {\n  padding: 0 calc(50% - 24rem);\n}\n```\n\nHere is a live demo: [http://codepen.io/lgkonline/pen/MeKGpz](http://codepen.io/lgkonline/pen/MeKGpz)"
 		}
-	]
+	],
+	"route": "react-if-else"
 }
